@@ -8,3 +8,16 @@ Feature:  Yo como tester evaluar la transición de estados de un control de inte
     When method get
     * print 'Response status:', responseStatus
     * match responseStatus == 200
+
+  @startOn
+  Scenario: Verificar que el interruptor puede encenderse
+    * def response = call read('@smoketest')
+    * if (response.state == 'off') {
+    Given url 'https://statemachine--maria7221.replit.app/api/'
+    And path 'switch/on'
+    And headers { Content-Type: 'application/json', Accept: 'application/json' }
+    And headers 'Content-Length': '0'
+    When method post
+    * print 'Response status:', responseStatus
+    * match responseStatus == 200
+    * match response == { "state": "on" }
