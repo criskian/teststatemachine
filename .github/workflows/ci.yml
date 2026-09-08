@@ -62,27 +62,27 @@ jobs:
             ./gradlew clean test --no-daemon --console=plain --stacktrace
           fi
 
-      - name: List build output (for debugging)
+      - name: List target output (for debugging)
         if: always()
         run: |
-          echo "-- build dir listing --"
-          ls -la build || true
+          echo "-- target dir listing --"
+          ls -la target || true
           echo "-- karate reports listing --"
-          ls -la build/karate-reports || true
+          ls -la target/karate-reports || true
           echo "-- test results listing --"
-          ls -la build/test-results || true
+          ls -la target/test-results || true
 
       - name: Upload Karate reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: karate-reports
-          path: build/karate-reports
+          path: target/karate-reports
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results
-          path: build/test-results
+          path: target/test-results
 
