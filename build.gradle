@@ -16,11 +16,12 @@ ext {
 dependencies {
     testImplementation "com.intuit.karate:karate-junit5:${karateVersion}"
     testImplementation "ch.qos.logback:logback-classic:1.5.6"
-
-    // Agrega esta línea para solucionar el error del launcher de JUnit Platform:
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 test {
     useJUnitPlatform()
+    systemProperty 'karate.output.dir', 'target/'
+    systemProperty "karate.options", System.getProperty("karate.options")
+
 }
