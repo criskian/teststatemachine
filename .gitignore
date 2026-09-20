@@ -22,7 +22,7 @@ out/
 .vscode/
 
 ## target ##
-.target/
+target/
 
 ## build ##
 build/
