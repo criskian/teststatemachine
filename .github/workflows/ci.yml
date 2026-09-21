@@ -1,4 +1,4 @@
-name: CI
+name: CI / CD Pipeline
 
 on:
   push:
@@ -11,6 +11,10 @@ on:
         description: 'Tag de Karate a ejecutar (puede incluir o no @). Si se deja vacío en ejecución manual, se usará @smoketest en integración.'
         required: false
         default: ''
+
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   build:
