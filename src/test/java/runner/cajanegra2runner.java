@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class cajanegra2runner {
-    //@Karate.Test
+    //@Karate.Test.
     //Karate testAll() {
     //    return Karate.run("classpath:features").relativeTo(getClass());
     //}
